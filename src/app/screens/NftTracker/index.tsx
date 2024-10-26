@@ -182,8 +182,18 @@ const renderIcons = () => {
 
         setCurrentSearchedAddress(formState);
         setOwnerNFTPortfolioState({ [owner]: data });
+
+        setWalletAddresses((prevAddresses) => {
+          const exists = prevAddresses.some((addr) => addr.text === formState);
+          if (!exists) {
+            return [...prevAddresses, { text: formState, selected: false }];
+          }
+          return prevAddresses;
+        });
       }
     };
+
+    const normalizedAddress = currentSearchedAddress.toLowerCase();
 
     useEffect(() => {
       const localStorageOwnerNFTPortfolioState = localStorage.getItem(
@@ -227,18 +237,7 @@ const renderIcons = () => {
       }
     }, [ownerNFTPortfolioState]);
 
-    useEffect(() => {
-      if (currentSearchedAddress) {
-        setWalletAddresses((prevState) => {
-          const updatedWalletAddress = prevState.map((item) => ({
-            ...item,
-            selected: false,
-          }));
-
-          return updatedWalletAddress;
-        });
-      }
-    }, [currentSearchedAddress]);
+  
 
     useEffect(() => {
       const selectedWalletAddress = walletAddresses.find((item) => item.selected);
@@ -260,11 +259,21 @@ const renderIcons = () => {
       }
     }, [walletAddresses]);
 
-    console.log("NFT assets:", ownerNFTPortfolioState[currentSearchedAddress]?.assets);
+    console.log(selectedWalletAddress)
 
+ 
     console.log("Current Searched Address:", currentSearchedAddress);
     console.log("Owner NFT Portfolio State:", ownerNFTPortfolioState);
-
+ 
+    useEffect(() => {
+      if (ownerNFTPortfolioState[normalizedAddress]) {
+        console.log("Updated NFT assets:", ownerNFTPortfolioState[normalizedAddress]?.assets);
+      }
+      else{
+        console.log("enefnj")
+      }
+    }, [ownerNFTPortfolioState, currentSearchedAddress]);
+    
     
     
     return (
@@ -383,13 +392,13 @@ const renderIcons = () => {
                 ) : (
                   <FlexContainer $flexDirection="row" $flexWrap="wrap" $justifyContent="flex-start" $alignItems="flex-start">
                     {currentSearchedAddress.length > 0 ? (
-                      ownerNFTPortfolioState[currentSearchedAddress]?.assets.length === 0 ||
-                        !ownerNFTPortfolioState[currentSearchedAddress] ? (
+                      ownerNFTPortfolioState[normalizedAddress]?.assets.length === 0 ||
+                        !ownerNFTPortfolioState[normalizedAddress] ? (
                         <FlexContainer $height="100%" $alignItems="center" $justifyContent="center">
                           <SearchText>No NFTs found</SearchText>
                         </FlexContainer>
                       ) : (
-                        ownerNFTPortfolioState[currentSearchedAddress]?.assets.map(
+                        ownerNFTPortfolioState[normalizedAddress]?.assets.map(
                           ({ collectionName, collectionTokenId, description, imageUrl, selected }, key) => (
                             <NFTCard
                               key={key}
