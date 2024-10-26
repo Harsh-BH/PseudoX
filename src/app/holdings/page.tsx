@@ -68,7 +68,7 @@ const TxHodlings = () => {
   };
 
   return (
-    <MainTxHistory $bgImg={logo.src}>
+    <MainTxHistory >
       <FlexContainer
         $flexDirection="row"
         $padding={"20px 0px 10px 0px"}
