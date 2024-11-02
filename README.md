@@ -1,7 +1,7 @@
 # PloreX
 **NFT Explorer and Transaction History App**
 
-**ScanX** This application provides a comprehensive platform for exploring NFT collections and viewing detailed transaction histories. Using the QuickNode API, the app offers users an efficient way to track and manage their NFT assets and blockchain interactions.
+**PloreX** This application provides a comprehensive platform for exploring NFT collections and viewing detailed transaction histories. Using the QuickNode API, the app offers users an efficient way to track and manage their NFT assets and blockchain interactions.
 
 ## Features
 
