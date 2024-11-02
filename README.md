@@ -29,7 +29,7 @@ QuickNode Integration: Fast data retrieval and secure, reliable connections to b
 
 ## Links
 [Website](https://pseudo-x.vercel.app)
-[Demo Video](https://youtu.be/qbM4dyAV7Kg)
+[Demo Video](https://youtu.be/NCfcEqyrEbA)
 
 ## Pictures
 
