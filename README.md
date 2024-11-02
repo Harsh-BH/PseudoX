@@ -17,11 +17,9 @@ Real-Time Updates: See up-to-date transaction history for each wallet, including
 Comprehensive Details: View information like transaction hashes, timestamps, asset types, and amounts, providing complete transparency into wallet activities.
 QuickNode Integration: Fast data retrieval and secure, reliable connections to blockchain data via QuickNode API.
 
-## Challenges we ran into
+## Challenges  ran into
 
-1. Since the models we used are quite large, we pushed the backend on GitHub and uploaded the models separately on a drive link. We tried to use the aws hosting services but its free tier is only for CPU, not for GPU. Since our project requires GPU, we had to host the backend locally on GitHub. 
-
-2. The team members had to put in a lot of efforts to make the website resposive. There was a long process of acceptance and rejection of page design ideas before unanimously agreeing on the final designs.
+1. I had to put in a lot of efforts to make the website resposive. There was a long process of acceptance and rejection of page design ideas before unanimously agreeing on the final designs.
 
 ## Technologies we used
 **Frontend:** React, Tailwind CSS
